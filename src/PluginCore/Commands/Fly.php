@@ -16,39 +16,39 @@ class Fly extends PluginCommand {
         if($event instanceof EntityDamageByEntityEvent) {
         $damager = $event->getDamager();
            if($damager instanceof Player && $this->isPlayer($damager)) {
-              $damager->sendTip(TextFormat::RED . "You cannot damage players while in fly mode!");
+              $damager->sendTip(TextFormat::GREEN . "You cannot damage players while in fly mode!");
               $event->setCancelled(true);
            }
         }
      }
    public function onJoin(PlayerJoinEvent $event){
         $sender = $event->getPlayer();
-        if ($sender->hasPermission("plugincore.fly.off")) {
+        if ($sender->hasPermission("skycore.fly.off")) {
             /**
              * onJoin if in survival mode = setAllowFlight false
              */
                  if($this->isPlayer($sender)) {
                     $this->removePlayer($sender);
                     $sender->setAllowFlight(false);
-                    $sender->sendMessage(TextFormat::GREEN . "§dYou have disabled fly mode since you joined!");
+                    $sender->sendMessage(TextFormat::GREEN . "§0[§aNotice§0] You have disabled fly mode since you joined!");
                     return true;
             }
         }
     }
     
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
-        if(strtolower($command->getName()) == "fly") {
+        if(strtolower($command->getName()) == "skyfly") {
             if($sender instanceof Player) {
                 if($this->isPlayer($sender)) {
                     $this->removePlayer($sender);
                     $sender->setAllowFlight(false);
-                    $sender->sendMessage(TextFormat::RED . "You have disabled fly mode!");
+                    $sender->sendMessage(TextFormat::RED . "(!) " . "SkyRealm's /skyfly has been disabled");
                     return true;
                 }
                 else{
                     $this->addPlayer($sender);
                     $sender->setAllowFlight(true);
-                    $sender->sendMessage(TextFormat::GREEN . "You have enabled fly mode!");
+                    $sender->sendMessage(TextFormat::GREEN . "(!)" . " SkyRealm's /skyfly mode enabled);
                     return true;
                 }
             }
