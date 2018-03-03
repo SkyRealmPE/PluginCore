@@ -3,4 +3,4 @@ version: 2.0.0
 api: [3.0.0-ALPHA11]
 author: Crafter20162017
 description: "§aSkyRealmPE's Core :D"
-main: SkyCore\Loader
+main: PluginCore\Loader
