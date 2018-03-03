@@ -9,7 +9,6 @@ use pocketmine\utils\Textformat as C;
 use PluginCore\Plugins\ActionSystem;
 use PluginCore\Plugins\FriendsPE;
 use PluginCore\Plugins\BowHealth;
-use PluginCore\Commands\FriendCommand;
 use PluginCore\Commands\{BanCommand, BanIPCommand};
 use PluginCore\Commands\{TBanCommand, TBanIPCommand};
 use PluginCore\Commands\KickCommand;
@@ -40,8 +39,7 @@ class Loader extends PluginBase{
         $this->cfg = new Config($this->getDataFolder() . "config.yml", Config::YAML);
    }
     private function RegCommands(){
-        $this->getServer()->getCommandMap()->register("skyfly", new Fly("skyfly", $this));
-	$this->getServer()->getCommandMap()->register("friend", new FriendCommand("friend", $this));
+        $this->getServer()->getCommandMap()->register("skyfly", new Fly("skyfly", $this));	
         /*$this->getServer()->getCommandMap()->register("gbuy", new GBuy("gbuy", $this)); TODO*/
         $this->getServer()->getCommandMap()->register("ban", new BanCommand("ban", $this));
         $this->getServer()->getCommandMap()->register("banip", new BanIPCommand("banip", $this));
