@@ -27,11 +27,11 @@ class Loader extends PluginBase{
     public function onEnable(){
             $this->RegConfig();
 	    $this->RegCommands();
-            $this->getLogger()->info(C::GREEN."PluginCore Enabled.");
+            $this->getLogger()->info(C::GREEN."SkyCore has successfully been loaded :)");
     }
     
     public function onDisable(){
-        $this->getLogger()->info(C::RED."Disabled.");
+        $this->getLogger()->info(C::RED."SkyCore is being disabled :'(");
     }
     public function RegConfig(){
         @mkdir($this->getDataFolder());
@@ -40,7 +40,7 @@ class Loader extends PluginBase{
         $this->cfg = new Config($this->getDataFolder() . "config.yml", Config::YAML);
    }
     private function RegCommands(){
-        $this->getServer()->getCommandMap()->register("fly", new Fly("fly", $this));
+        $this->getServer()->getCommandMap()->register("skyfly", new Fly("skyfly", $this));
 	$this->getServer()->getCommandMap()->register("friend", new FriendCommand("friend", $this));
         /*$this->getServer()->getCommandMap()->register("gbuy", new GBuy("gbuy", $this)); TODO*/
         $this->getServer()->getCommandMap()->register("ban", new BanCommand("ban", $this));
