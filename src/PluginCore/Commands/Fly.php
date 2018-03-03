@@ -48,7 +48,7 @@ class Fly extends PluginCommand {
                 else{
                     $this->addPlayer($sender);
                     $sender->setAllowFlight(true);
-                    $sender->sendMessage(TextFormat::GREEN . "(!)" . " SkyRealm's /skyfly mode enabled);
+                    $sender->sendMessage(TextFormat::GREEN . "(!)" . " SkyRealm's /skyfly mode enabled");
                     return true;
                 }
             }
